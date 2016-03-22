@@ -43,4 +43,3 @@ This is by design, so that it is harder to accidentally end up tagging your post
 
 = 0.1 =
 * Initial release.
-
