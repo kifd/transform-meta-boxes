@@ -1,5 +1,6 @@
 === Transform Meta Boxes ===
 Contributors: keith_wp
+Donate Link: http://drakard.com/
 Tags: transform meta boxes, change taxonomy style, taxonomy style, meta box, meta boxes, change meta boxes, alter meta box, metaboxes
 Requires at least: 3.8 or higher
 Tested up to: 4.4.2
@@ -16,7 +17,7 @@ Change the appearance of a taxonomy's meta box input in the Edit screen to somet
 
 == Installation ==
 
-1. Upload the plugin files to the [b]/wp-content/plugins/transform-meta-boxes/[/b] directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the **/wp-content/plugins/transform-meta-boxes/** directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the Settings -> Transform Meta Boxes screen to configure the plugin, picking which taxonomies you want to transform and how.
 
@@ -42,3 +43,4 @@ This is by design, so that it is harder to accidentally end up tagging your post
 
 = 0.1 =
 * Initial release.
+
