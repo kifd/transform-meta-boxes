@@ -1,14 +1,14 @@
 === Transform Meta Boxes ===
 Contributors: keith_wp
-Donate Link: http://drakard.com/
+Donate Link: https://drakard.com/
 Tags: transform meta boxes, change taxonomy style, taxonomy style, meta box, meta boxes, change meta boxes, alter meta box, metaboxes
-Requires at least: 3.8 or higher
-Tested up to: 4.4.2
-Stable tag: 0.1
+Requires at least: 4.5 or higher
+Tested up to: 5.2.1
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Alter any taxonomy's meta box appearance to single or multiple select dropdowns, or toggle button style checkboxes.
+Alter any taxonomy's meta box appearance (**in the Classic Editor**) to single or multiple select dropdowns, or toggle button style checkboxes.
 
 == Description ==
 
@@ -41,5 +41,21 @@ This is by design, so that it is harder to accidentally end up tagging your post
 
 == Changelog ==
 
+
+= 0.1.3 =
+* Tested against 5.2.1
+* Will not work with Gutenberg until https://github.com/WordPress/gutenberg/issues/13816 is sorted
+
+= 0.1.2 =
+* Tested against 4.6.2
+* Bugfix: Check for deactivated taxonomies
+* Update: Doesn't use the deprecrated get_terms() call now
+
+= 0.1.1 =
+* Tested against 4.6.1
+
 = 0.1 =
 * Initial release.
+
+
+== Upgrade Notice ==
