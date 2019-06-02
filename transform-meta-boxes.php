@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Transform Meta Boxes
-Version: 0.1
-Plugin URI: http://drakard.com/
-Description: Change the appearance of a taxonomy's meta box input in the Edit screen to something other than the Category checkboxes or Tag free text entry, allowing you to have your users easily pick from a predefined set of terms.
+Version: 0.1.3
+Plugin URI: https://drakard.com/
+Description: Change the appearance of a taxonomy's meta box input in the Edit screen to something other than the Category checkboxes or Tag free text entry, allowing you to have your users easily pick from a predefined set of terms. <strong>Classic Editor only!</strong>
 Author: Keith Drakard
-Author URI: http://drakard.com/
+Author URI: https://drakard.com/
 */
 
 
@@ -36,18 +36,18 @@ class TransformMetaBoxesPlugin {
 
 	public function alter_taxonomies() {
 		foreach ($this->options['taxonomies_to_change'] as $taxonomy => $settings) {
-
 			$tax_obj = get_taxonomy($taxonomy);
-    		$tax_obj->meta_box_cb = array(
-				new MetaBoxTransformations(array(
-					'taxonomy' =>	$taxonomy,
-					'name' =>		$settings['name'],
-					'field' =>		$settings['field'],
-					'multiple' =>	$settings['multiple'],
-				)),					$settings['transformation']
-			);
-
-    		register_taxonomy($settings['taxonomy'], $tax_obj->object_type, (array) $tax_obj);
+			if (is_object($tax_obj)) { // remember to check in case we've got this active and then deactivate another plugin and spend 20 minutes chasing your tail
+	    		$tax_obj->meta_box_cb = array(
+					new MetaBoxTransformations(array(
+						'taxonomy' =>	$taxonomy,
+						'name' =>		$settings['name'],
+						'field' =>		$settings['field'],
+						'multiple' =>	$settings['multiple'],
+					)),					$settings['transformation']
+				);
+	    		register_taxonomy($settings['taxonomy'], $tax_obj->object_type, (array) $tax_obj);
+	    	}
     	}
     }
 
@@ -98,7 +98,7 @@ class TransformMetaBoxesPlugin {
 		add_options_page(__('Transform Meta Boxes Options', 'TransformMetaBoxes'), __('Transform Meta Boxes', 'TransformMetaBoxes'), 'manage_options', __CLASS__.'/settings.php', array(__CLASS__, 'display_settings_page'));
 	}
 
-	public function display_settings_page() {
+	public static function display_settings_page() {
 		echo '<div class="wrap"><h2>'.__('Transform Meta Boxes Options', 'TransformMetaBoxes').'</h2>'
 			.'<form action="options.php" method="post">';
 				settings_fields('TransformMetaBoxesPluginOptions');
